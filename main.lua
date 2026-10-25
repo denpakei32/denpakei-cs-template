@@ -1,4 +1,4 @@
--- name: [CS] Template
+-- name: [CS] Replace
 -- description: Write mod description here!\n\nMade by: You!\n\n\\#ff7777\\This Pack requires Character Select\nto use as a Library!
 
 local TEXT_MOD_NAME = get_active_mod().name
@@ -9,12 +9,14 @@ if not _G.charSelectExists then
     return 0
 end
 
+-- REPLACE, replace, Replace
+
 --- Load Models ---
 local E_MODEL_REPLACE = smlua_model_util_get_id("replace_geo")      -- Located in "actors"
 
 --- Load Textures ---
-local TEX_REPLACE_LIFE_ICON = get_texture_info("repalce_icon") -- Located in "textures"
-local TEX_REPLACE_TRANSITION = get_texture_info("repalce_transition") -- Located in "textures"
+local TEX_REPLACE_LIFE_ICON = get_texture_info("replace_icon") -- Located in "textures"
+local TEX_REPLACE_TRANSITION = get_texture_info("replace_transition") -- Located in "textures"
 
 -- All sound files are located in "sound" folder
 local VOICETABLE_REPLACE = {
@@ -102,7 +104,7 @@ local HEALTH_METER_REPLACE = {
 
 local function on_character_select_load()
     CT_REPLACE = charSelect.character_add(
-        "Custom Character", -- Character Name
+        "Replace", -- Character Name
         "Description/Info", -- Description
         "denpakei32", -- Credits
         "00ff00",           -- Menu Color
