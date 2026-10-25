@@ -14,6 +14,7 @@ local E_MODEL_REPLACE = smlua_model_util_get_id("replace_geo")      -- Located i
 
 --- Load Textures ---
 local TEX_REPLACE_LIFE_ICON = get_texture_info("repalce_icon") -- Located in "textures"
+local TEX_REPLACE_TRANSITION = get_texture_info("repalce_transition") -- Located in "textures"
 
 -- All sound files are located in "sound" folder
 local VOICETABLE_REPLACE = {
@@ -118,6 +119,7 @@ local function on_character_select_load()
 	charSelect.character_add_health_meter(CT_REPLACE, HEALTH_METER_REPLACE)
 	charSelect.character_set_category(CT_REPLACE, TEXT_MOD_NAME)
 	charSelect.character_add_animations(E_MODEL_REPLACE, ANIMTABLE_REPLACE, EYETABLE_REPLACE, HANDTABLE_REPLACE)
+	charSelect.character_add_texture_replacement(CT_REPLACE, "texture_transition_mario", TEX_REPLACE_TRANSITION)
 
 	charSelect.credit_add(TEXT_MOD_NAME, "denpakei32", "Pack")
 end
