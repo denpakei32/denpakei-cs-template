@@ -1,4 +1,4 @@
-
 *.blend1
-*.tex
-*.bin
+/tmp
+/temp
+/old
