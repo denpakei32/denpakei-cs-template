@@ -1,4 +1,4 @@
-this repo isn't an *actual* CS! it's just a template made for myself, with some changes to the .lua and .blend which i *personally* think feels better; that being said, there isn't any harm in making it public i guess :P
+this repo isn't an *actual* CS! it's just a modified template, for myself. it has changes to the .lua and .blend which i *personally* think feels better and speeds up things overall for new CS projects i make; that being said, it's not for everyone but there isn't any harm in making it public, i guess :P
 
 changes:
 - .blend (not done)
