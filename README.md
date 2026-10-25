@@ -10,3 +10,5 @@ changes:
   - fix duplicate entry in voicetable
   - add more charSelect functions (like animation, character transition texture)
   - add quickly swapable name for ease of use (replace "REPLACE" with the actual character's name, case match on)
+- github
+  - add .gitignore path /temp, /tmp, /old
