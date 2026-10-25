@@ -9,33 +9,14 @@ if not _G.charSelectExists then
     return 0
 end
 
---[[
-    Everything from here down is character data, and is loaded at the end of the file
-
-    Note that most things here are noted out via use of '--', if there is any
-    functionality you'd want to use then remove the '--' in front of the functions.
-
-    If needbe, Replace CHAR in the tables with your character's name
-    Ex: E_MODEL_CHAR -> E_MODEL_SQUISHY
-
-    Ensure all file naming is unique from other mods.
-    Prefixing your files with your character's name should work fine
-    Ex: life-icon.png -> squis-icon.png
-
-    API Documentation for Character Select can be found below:
-    https://github.com/Squishy6094/character-select-coop/wiki/API-Documentation
-
-    Use this if you're curious on how anything here works >v<
-]]
-
 --- Load Models ---
-local E_MODEL_CHAR = smlua_model_util_get_id("custom_model_geo")      -- Located in "actors"
+local E_MODEL_REPLACE = smlua_model_util_get_id("custom_model_geo")      -- Located in "actors"
 
 --- Load Textures ---
-local TEX_CHAR_LIFE_ICON = get_texture_info("exclamation-icon") -- Located in "textures"
+local TEX_REPLACE_LIFE_ICON = get_texture_info("exclamation-icon") -- Located in "textures"
 
 -- All sound files are located in "sound" folder
-local VOICETABLE_CHAR = {
+local VOICETABLE_REPLACE = {
     [CHAR_SOUND_OKEY_DOKEY] =        'CharStartGame.ogg', -- Starting game
 	[CHAR_SOUND_LETS_A_GO] =         'CharStartLevel.ogg', -- Starting level
 	[CHAR_SOUND_GAME_OVER] =         'CharGameOver.ogg', -- Game Overed
@@ -54,7 +35,6 @@ local VOICETABLE_CHAR = {
 	[CHAR_SOUND_HAHA] =              'CharTripleJumpLand.ogg', -- Landing triple jump
 	[CHAR_SOUND_HAHA_2] =            'CharWaterLanding.ogg', -- Landing in water from big fall
 	[CHAR_SOUND_YAHOO] =             'CharLongJump.ogg', -- Long jump
-	[CHAR_SOUND_DOH] =               'CharBonk.ogg', -- Long jump wall bonk
 	[CHAR_SOUND_WHOA] =              'CharGrabLedge.ogg', -- Grabbing ledge
 	[CHAR_SOUND_EEUH] =              'CharClimbLedge.ogg', -- Climbing over ledge
 	[CHAR_SOUND_WAAAOOOW] =          'CharFalling.ogg', -- Falling a long distance
@@ -85,17 +65,13 @@ local VOICETABLE_CHAR = {
 	[CHAR_SOUND_MAMA_MIA] =          'CharLeaveLevel.ogg' -- Booted out of level
 }
 
--- All Located in "actors" folder
--- (Models do not exist in template)
---[[
-local CAPTABLE_CHAR = {
+local CAPTABLE_REPLACE = {
     normal = smlua_model_util_get_id("FILENAME_geo"),
     wing = smlua_model_util_get_id("FILENAME_geo"),
     metal = smlua_model_util_get_id("FILENAME_geo"),
 }
-]]
 
-local PALETTE_CHAR = {
+local PALETTE_REPLACE = {
     [PANTS]  = "ffffff",
     [SHIRT]  = "ffffff",
     [GLOVES] = "ffffff",
@@ -106,10 +82,7 @@ local PALETTE_CHAR = {
 	[EMBLEM] = "ffffff"
 }
 
--- All Located in "textures" folder
--- (Textures do not exist in template)
---[[
-local HEALTH_METER_CHAR = {
+local HEALTH_METER_REPLACE = {
     label = {
         left = get_texture_info("healthleft"),
         right = get_texture_info("healthright"),
@@ -125,53 +98,28 @@ local HEALTH_METER_CHAR = {
         [8] = get_texture_info("Pie8"),
     }
 }
-]]
-
---[[
-    Everything from here down where the data is applied
-
-    Note that nothing here other than the 'character_add' function
-    is required for a custom character, if you don't have the assets
-    then feel free to remove the function from the functions below
-]]
 
 local function on_character_select_load()
-    -- Adds the custom character to the Character Select Menu
-    CT_CHAR = _G.charSelect.character_add(
+    CT_REPLACE = charSelect.character_add(
         "Custom Character", -- Character Name
         "Description/Info", -- Description
-        "Mod Creator Name", -- Credits
-        "ffaaaa",           -- Menu Color
-        E_MODEL_CHAR,       -- Character Model
+        "denpakei32", -- Credits
+        "00ff00",           -- Menu Color
+        E_MODEL_REPLACE,       -- Character Model
         CT_MARIO,           -- Override Character
-        TEX_CHAR_LIFE_ICON, -- Life Icon
+        TEX_REPLACE_LIFE_ICON, -- Life Icon
         1                   -- Camera Scale
     )
 
-    -- Adds cap models to your character
-    -- (Models do not exist in template)
-    -- _G.charSelect.character_add_caps(E_MODEL_CHAR, CAPTABLE_CHAR)
+ 	charSelect.character_add_caps(E_MODEL_REPLACE, CAPTABLE_REPLACE)
+    charSelect.character_add_voice(E_MODEL_REPLACE, VOICETABLE_REPLACE)
+    charSelect.character_add_celebration_star(E_MODEL_REPLACE, E_MODEL_REPLACE_STAR, TEX_REPLACE_STAR_ICON)
+	charSelect.character_add_palette_preset(E_MODEL_REPLACE, PALETTE_REPLACE)
+	charSelect.character_add_health_meter(CT_REPLACE, HEALTH_METER_REPLACE)
+	charSelect.character_set_category(CT_REPLACE, TEXT_MOD_NAME)
+	charSelect.character_add_animations(E_MODEL_REPLACE, ANIMTABLE_REPLACE, EYETABLE_REPLACE, HANDTABLE_REPLACE)
 
-    -- Adds a voice to your character
-    -- (Sounds do not exist in template)
-    -- _G.charSelect.character_add_voice(E_MODEL_CHAR, VOICETABLE_CHAR)
-
-    -- Adds a celebration star to your character
-    -- (Models do not exist in template)
-    --_G.charSelect.character_add_celebration_star(E_MODEL_CHAR, E_MODEL_CHAR_STAR, TEX_CHAR_STAR_ICON)
-
-    -- Adds a palette to your character
-    _G.charSelect.character_add_palette_preset(E_MODEL_CHAR, PALETTE_CHAR)
-
-    -- Adds a health meter to your character
-    -- (Textures do not exist in template)
-    -- _G.charSelect.character_add_health_meter(CT_CHAR, HEALTH_METER_CHAR)
-
-    -- Gives your character(s) a category in the menu
-    _G.charSelect.character_set_category(CT_CHAR, TEXT_MOD_NAME)
-
-    -- Adds credits to the credits menu
-    _G.charSelect.credit_add(TEXT_MOD_NAME, "You", "Pack")
+	charSelect.credit_add(TEXT_MOD_NAME, "denpakei32", "Pack")
 end
 
 -- Waits until the API is fully loaded before adding chars, just to be safe
