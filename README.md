@@ -1,4 +1,4 @@
-this repo isn't an *actual* CS! it's just a modified template, for myself. it has changes to the .lua and .blend which i *personally* think feels better and speeds up things overall for new CS projects i make; that being said, it's not for everyone but there isn't any harm in making it public, i guess :P
+this repo isn't an *actual* CS! it's just a modified template, for myself. it has changes to the .lua and .blend which i *personally* think feels better and speeds up things overall for new CS projects i make (by using my naming conventions and etc); that being said, it's not for everyone but there isn't any harm in making it public, i guess :P
 
 changes:
 - .blend (not done)
@@ -12,3 +12,5 @@ changes:
   - add quickly swapable name for ease of use (replace "REPLACE" with the actual character's name, case match on)
 - github
   - add .gitignore path /temp, /tmp, /old
+
+TODO: add modeling guides here
