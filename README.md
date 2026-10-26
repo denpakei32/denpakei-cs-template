@@ -13,5 +13,6 @@ changes:
 - github
   - add .gitignore path /temp, /tmp, /old
 
-TO DO: add modeling guides here
+TO DO: add modeling guides here, set animation names to CHAR_ANIM_X
+
 NOT PLANNED: fixing settings for animations in the new animation manager
