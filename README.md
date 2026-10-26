@@ -13,4 +13,5 @@ changes:
 - github
   - add .gitignore path /temp, /tmp, /old
 
-TODO: add modeling guides here
+TO DO: add modeling guides here
+NOT PLANNED: fixing settings for animations in the new animation manager
