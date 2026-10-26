@@ -5,6 +5,7 @@ changes:
   - remove auto pack from blend
   - model already in tpose
   - separate armature for easy physbones additions
+  - fix custom_cmd on caps
 - .lua
   - remove most comments
   - fix duplicate entry in voicetable
@@ -13,6 +14,6 @@ changes:
 - github
   - add .gitignore path /temp, /tmp, /old
 
-TO DO: add modeling guides here, set animation names to CHAR_ANIM_X
+TO DO: add modeling guides here (corrective scale, wings on back, physbones additions, etc), set animation names to CHAR_ANIM_X, maybe make mario use the least amount of materials possible (he's going to get replaced anyways), attempt to remove unnecessary data from template to decrease file size
 
 NOT PLANNED: fixing settings for animations in the new animation manager
